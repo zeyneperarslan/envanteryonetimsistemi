@@ -70,4 +70,4 @@ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
   Uyarı: Zenity Yüklenmemişse
     Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
   ```bash
-      sudo apt-get install zenity
+  sudo apt-get install zenity
