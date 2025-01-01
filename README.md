@@ -53,6 +53,21 @@ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
    git clone https://github.com/zeyneperarslan/zenity.git
 
 2. **Proje Klasörüne Gidin**
-Klonladığınız projeye gitmek için şu komutu kullanın:
-```bash
-cd zenity
+   Klonladığınız projeye gitmek için şu komutu kullanın:
+   ```bash
+   cd zenity
+   
+3. **Çalıştırılabilir İzinler Verin**
+   Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
+   ```bash
+   chmod +x genel_ekran.sh
+
+4. **Projeyi Başlatın**
+   Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
+   ```bash
+   ./envanter_yonetimi.sh
+
+  Uyarı: Zenity Yüklenmemişse
+    Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
+  ```bash
+      sudo apt-get install zenity
