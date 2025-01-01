@@ -50,12 +50,12 @@ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
 1. **Depoyu Klonlayın**  
    GitHub üzerindeki projeyi bilgisayarınıza klonlamak için terminalde aşağıdaki komutu çalıştırın:
    ```bash
-   git clone https://github.com/zeyneperarslan/zenity.git
+   git clone https://github.com/zeyneperarslan/envanteryonetimsistemi.git
 
 2. **Proje Klasörüne Gidin**
    Klonladığınız projeye gitmek için şu komutu kullanın:
    ```bash
-   cd zenity
+   cd envanteryonetimsistemi
    
 3. **Çalıştırılabilir İzinler Verin**
    Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
@@ -65,7 +65,7 @@ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
 4. **Projeyi Başlatın**
    Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
    ```bash
-   ./envanter_yonetimi.sh
+   ./genel_ekran.sh
 
   Uyarı: Zenity Yüklenmemişse
     Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
