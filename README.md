@@ -67,7 +67,7 @@ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
    ```bash
    ./genel_ekran.sh
 
-  Uyarı: Zenity Yüklenmemişse
+  **Uyarı:** Zenity Yüklenmemişse
     Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
   ```bash
   sudo apt-get install zenity
