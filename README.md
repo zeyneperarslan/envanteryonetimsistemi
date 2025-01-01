@@ -36,38 +36,38 @@ Proje, Zenity ve bash script kullanılarak geliştirilmiş basit bir envanter y�
     - **Hata Kayıtlarını Göster**: Sistemdeki hata kayıtlarını görüntüleyebilirsiniz.
   - **Çıkış**: Sistemi kapatabilir ve çıkabilirsiniz.
     
-## Kurulum
+ ## Kurulum
 
-### Gereksinimler
+ ### Gereksinimler
 
-Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
+ Bu projeyi çalıştırabilmek için aşağıdaki yazılımlar gereklidir:
 
-- **Zenity**: Grafiksel kullanıcı arayüzü pencereleri oluşturmanıza olanak tanır.
-- **Bash**: Bu proje, bash script ile yazılmıştır ve genellikle Linux sistemlerde varsayılan olarak gelir.
+ - **Zenity**: Grafiksel kullanıcı arayüzü pencereleri oluşturmanıza olanak tanır.
+ - **Bash**: Bu proje, bash script ile yazılmıştır ve genellikle Linux sistemlerde varsayılan olarak gelir.
 
-### Adım Adım Kurulum
+ ### Adım Adım Kurulum
 
-1. **Depoyu Klonlayın**  
-   GitHub üzerindeki projeyi bilgisayarınıza klonlamak için terminalde aşağıdaki komutu çalıştırın:
-   ```bash
-   git clone https://github.com/zeyneperarslan/envanteryonetimsistemi.git
+ 1. **Depoyu Klonlayın**  
+    GitHub üzerindeki projeyi bilgisayarınıza klonlamak için terminalde aşağıdaki komutu çalıştırın:
+    ```bash
+    git clone https://github.com/zeyneperarslan/envanteryonetimsistemi.git
 
-2. **Proje Klasörüne Gidin**
-   Klonladığınız projeye gitmek için şu komutu kullanın:
-   ```bash
-   cd envanteryonetimsistemi
+ 2. **Proje Klasörüne Gidin**
+    Klonladığınız projeye gitmek için şu komutu kullanın:
+    ```bash
+    cd envanteryonetimsistemi
    
-3. **Çalıştırılabilir İzinler Verin**
-   Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
-   ```bash
-   chmod +x genel_ekran.sh
+ 3. **Çalıştırılabilir İzinler Verin**
+    Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
+    ```bash
+    chmod +x genel_ekran.sh
 
-4. **Projeyi Başlatın**
-   Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
-   ```bash
-   ./genel_ekran.sh
+ 4. **Projeyi Başlatın**
+    Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
+    ```bash
+    ./genel_ekran.sh
 
-  **Uyarı:** Zenity Yüklenmemişse
-    Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
-  ```bash
-  sudo apt-get install zenity
+   **Uyarı:** Zenity Yüklenmemişse
+     Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
+   ```bash
+   sudo apt-get install zenity
