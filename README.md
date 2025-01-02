@@ -155,18 +155,22 @@ Ardından silmek istediğine dair bir onay alınır.
 
 Eğer onay verilirse silme işlemi tamamlanır ve kullanıcıya bilgi verilir.
 
+---
+
 ### 5. Rapor Al
 **"Rapor Al"** seçeneğine tıklandığında kullanıcının seçimine göre envanterdeki stoğu azalan ürünleri ya da yüksek stok miktarındaki ürünler listelenir.
 
 <img src="zenity/rapormenu.png" alt="Giriş Ekranı" width="250">
 
- **Stoğu azalan Ürünler** seçilirse ilk olarak kullanıcıdan eşik değer istenir ardından stok miktarı eşik değerine yakın olan ürünler listelenir.
+ - **Stoğu azalan Ürünler** seçilirse ilk olarak kullanıcıdan eşik değer istenir ardından stok miktarı eşik değerine yakın olan ürünler listelenir.
 
  <img src="zenity/azstokesik.png" alt="Giriş Ekranı" width="250" height="170"> <img src="zenity/azstokliste.png" alt="Giriş Ekranı" width="200">
 
- **En Yüksek Stok Miktarına Sahip Ürünler** seçilirse ilk olarak kullanıcıdan eşik değer istenir ardından stok miktarı eşik değerinin üstünde olan ürünler listelenir.
+ - **En Yüksek Stok Miktarına Sahip Ürünler** seçilirse ilk olarak kullanıcıdan eşik değer istenir ardından stok miktarı eşik değerinin üstünde olan ürünler listelenir.
 
  <img src="zenity/yuksekstokesik.png" alt="Giriş Ekranı" width="250"> <img src="zenity/yuksekstokliste.png" alt="Giriş Ekranı" width="200" height="300">
+
+ ---
 
 ### 6. Kullanıcı Yönetimi
 **"Kullanıcı Yönetimi"** seçeneğine tıklandığında sadece Yöneticinin erişiminde olan işlemler sunulur.
@@ -175,7 +179,7 @@ Eğer onay verilirse silme işlemi tamamlanır ve kullanıcıya bilgi verilir.
 
 Yönetici rolünde olan kullanıcı seçeneklerden birini seçer.
 
-#### Yeni Kullanıcı Ekle 
+- #### Yeni Kullanıcı Ekle 
 **"Yeni Kullanıcı Ekle"** seçeneği seçilirse uygulamaya yeni kullanıcı ekleme işlemi yapılır.
 
 <img src="zenity/yeniad.png" alt="Giriş Ekranı" width="200"> 
@@ -186,12 +190,12 @@ Yeni kullanıcının sırasıyla kullanıcı adı , soyadı , rolü ve şifresi 
 
 Yeni kullanıcının tüm bilgileri girildikten sonra bilgilendirme mesajı verilir.
 
-#### Kullanıcıları Listele
+- #### Kullanıcıları Listele
 **"Kullanıcıları Listele"** seçeneği seçilirse var olan kullanıcı listesi görüntülenir.
 
 <img src="zenity/kullaniciliste.png" alt="Giriş Ekranı" width="250">
 
-#### Kullanıcı Güncelle
+- #### Kullanıcı Güncelle
 **"Kullanıcı Güncelle"** seçeneği seçilirse istenen kullanıcının bilgileri güncellenir.
 
 <img src="zenity/soyadguncel.png" alt="Giriş Ekranı" width="250"> 
@@ -202,7 +206,7 @@ Güncellenmek istenen kullanıcının  sırasıyla kullanıcı adı , soyadı , 
 
 Yönetici kullanıcı güncelleme işlemlerini tamamladığında bilgilendirme mesajı verilir.
 
-#### Kullanıcı Sil
+- #### Kullanıcı Sil
 **"Kullanıcı Sil"** seçeneği seçilirse istenen kullanıcıya ait hesap uygulamadan silinir.
 
 <img src="zenity/kullanicisil.png" alt="Giriş Ekranı" width="200"> 
@@ -217,7 +221,7 @@ Ardından silmek istediğine dair onayı alınır.
 
 Onay doğrulanırsa bilgilendirme mesajı verilir.
 
-#### Kullanıcı Şifresini Sıfırla
+- #### Kullanıcı Şifresini Sıfırla
 **"Kullanıcı Şifrresini Sıfırla"** seçeneği seçilirse istenen kullanıcın şifresi sıfırlanır.
 
 <img src="zenity/sifresifirlama.png" alt="Giriş Ekranı" width="200"> 
@@ -232,7 +236,7 @@ Ardından seçilen kullanıcının yeni şifresi girilir.
 
 İşlemler tamamlandıktan sonra şifrenin sıfırlandığına dair bilgilendirme mesajı verilir.
 
-#### Kilitli Hesapları Aç
+- #### Kilitli Hesapları Aç
 **"Kullanıcı Şifrresini Sıfırla"** seçeneği seçilirse yönetici var olan kilitli hesapların açılmasını sağlar.
 
 <img src="zenity/kilitacmaisim.png" alt="Giriş Ekranı" width="200" > 
@@ -247,6 +251,8 @@ Eğer girilen kullanıcı adına sahip hesap kilitli ise tekrardan açılmasına
 
 Hesap kilidi açma işlemi tammalandığında açıldığına dair bilgilendirme mesajı verilir.
 
+---
+
 ### 7. Program Yönetimi
 **"Program Yönetimi"** seçeneğine tıklandığında disk yönetimi ile ilgili seçenekler listelenir.
 
@@ -254,20 +260,22 @@ Hesap kilidi açma işlemi tammalandığında açıldığına dair bilgilendirme
 
 Kullanıcı seçeneklerden birini seçer.
 
-#### Diskteki Alanı Göster
+- #### Diskteki Alanı Göster
 **"Diskteki Alanı Göster"** seçeneği seçildiğinde diskteki boş ve kullanılan alan görüntülenir.
 
 <img src="zenity/diskalani.png" alt="Giriş Ekranı" width="300" > 
 
-#### Diske Yedekle
+- #### Diske Yedekle
 **"Diske Yedekle"** seçeneği seçildiğinde kullanici.csv ve depo.csv dosyaları yedeklenir. Yeni yedek_kullanici.csv ve yedek_depo.csv dosyaları oluşturulur.Ardından yedeklendiğine dair bilgilendirme mesajı verilir.
 
 <img src="zenity/yedeklememesaj.png" alt="Giriş Ekranı" width="250"> 
 
-#### Hata Kayıtlarını Göster
+- #### Hata Kayıtlarını Göster
 **"Hata Kayıtlarını Göster"** seçeneği seçildiğinde diskle ilgili hata kayıtlarını içeren log.csv dosyası okunur ve içeriği listelenir.
 
 <img src="zenity/hataliste.png" alt="Giriş Ekranı" width="300" > 
+
+---
 
 ### 8. Çıkış Yap
 **"Çıkış Yap"** seçeneğine tıklandığında kullanıcı uygulamadan çıkış yapar.
