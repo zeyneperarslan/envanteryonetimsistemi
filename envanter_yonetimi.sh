@@ -23,24 +23,25 @@ function log_hata() {  # log_hata fonksiyonu, bir hata mesajını log.csv dosyas
 
 
 function oturum_ekrani() {
-    deneme_sayisi=0
+
+    deneme_sayisi=0 #başlangıç deneme sayısı 0 
 
     while [[ $deneme_sayisi -lt 3 ]]; do
-        # Kullanıcı adı ve şifre al
+        # Kullanıcı adı ve şifre alınır.
         kullanici_adi=$(zenity --entry --title="Giriş" --text="Kullanıcı Adınızı Giriniz:" --width=400 --height=150)
         sifre=$(zenity --password --title="Giriş" --text="Şifrenizi Giriniz:" --width=400 --height=150)
 
-        # Kullanıcı satırını CSV dosyasından al
+        # Kullanıcı satırı CSV dosyasından alınır
         kullanici_satir=$(grep -i "^$kullanici_adi," kullanici.csv)
         
-        # Satırın doğru alınıp alınmadığını kontrol et
+        # Satırın doğru alınıp alınmadığı kontrol edilir.
         if [[ -z "$kullanici_satir" ]]; then
             zenity --error --text="Hatalı kullanıcı adı veya şifre"
             deneme_sayisi=$((deneme_sayisi + 1))
             continue
         fi
 
-        # Kullanıcı bilgilerini ayrıştır
+        # Kullanıcı bilgilerini ayrıştırılır rol ve şifre çekilir
         mevcut_sifre=$(echo "$kullanici_satir" | awk -F, '{print $4}')
         kullanici_rol=$(echo "$kullanici_satir" | awk -F, '{print $3}')
 
@@ -49,10 +50,10 @@ function oturum_ekrani() {
         echo "Şifre: $mevcut_sifre"
         echo "Rol: $kullanici_rol"
 
-        # Şifre doğrulama
+        # Şifre doğrulaması yapılır
         if [[ "$sifre" == "$mevcut_sifre" ]]; then
 
-             (
+             ( #süreç ilerler
                 echo "0"; sleep 1
                 echo "25"; echo "# Şifre doğrulandı."; sleep 2
                 echo "50"; echo "# Rol kontrol ediliyor..."; sleep 2
@@ -62,7 +63,7 @@ function oturum_ekrani() {
 
             zenity --info --text="Giriş Başarılı, Hoşgeldiniz $kullanici_adi ($kullanici_rol)"
 
-            # Yönetici ve kullanıcı ayrımı
+            # Yönetici ve kullanıcı ayrımı yapılır
             if [[ "$kullanici_rol" == "Yönetici" ]]; then
                 ana_menu "Yönetici"
             elif [[ "$kullanici_rol" == "Kullanıcı" ]]; then
@@ -78,7 +79,7 @@ function oturum_ekrani() {
         fi
     done
 
-    # 3 hatalı girişte hesabı kilitle
+    # 3 hatalı girişte hesap kilitlenir
      sed -i "s/^$kullanici_adi,\([^,]*,\)\{2\}\([^,]*\)$/&kilitli/" kullanici.csv
     zenity --error --text="Hatalı girişler nedeniyle hesabınız kilitlenmiştir."
     exit 1
@@ -87,25 +88,25 @@ function oturum_ekrani() {
 function sifre_sifirla() {
     kullanici_adi=$(zenity --entry --title="Şifre Sıfırlama" --text="Şifresi sıfırlanacak kullanıcı adını girin:" --width=400 --height=150)
     
-    # Kullanıcı adını kontrol et (boş olamaz)
+    # Kullanıcı adı kontrol edilir (boş olamaz)
     if [[ -z "$kullanici_adi" ]]; then
         zenity --error --text="Kullanıcı adı boş olamaz!"
         return
     fi
 
-    # Kullanıcı adını CSV dosyasından ara
+    # Kullanıcı adı CSV dosyasında aranır
     kullanici=$(grep -i "^$kullanici_adi," kullanici.csv)
     if [[ -z "$kullanici" ]]; then
         zenity --error --text="Kullanıcı bulunamadı!"
         return
     fi
 
-    # Kullanıcı bilgilerini ayır
+    # Kullanıcı bilgileri ayrılır
     soyadi=$(echo "$kullanici" | awk -F, '{print $2}')
     rol=$(echo "$kullanici" | awk -F, '{print $3}')
     mevcut_sifre=$(echo "$kullanici" | awk -F, '{print $4}')
 
-    # Şifre sıfırlama onayı
+    # Şifre sıfırlama onayı 
     if zenity --question --title="Onay" --text="Şifreyi sıfırlamak istediğinizden emin misiniz?" --width=400 --height=150; then
         yeni_sifre=$(zenity --entry --title="Yeni Şifre" --text="Yeni şifreyi girin:" --hide-text --width=400 --height=150)
         
