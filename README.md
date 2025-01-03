@@ -3,6 +3,8 @@
 
 Proje, Zenity ve bash script kullanılarak geliştirilmiş basit bir envanter yönetim sistemi uygulamasıdır. Kullanıcı dostu bir arayüz ile depo yönetimi, kullanıcı işlemleri gibi temel işlevleri yerine getirebilecek şekilde tasarlanmıştır.
 
+## Proje Videosu 
+
 ## Özellikler
 
 - **Kullanıcı Rolleri:**
