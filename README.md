@@ -60,12 +60,12 @@ Proje, Zenity ve bash script kullanılarak geliştirilmiş basit bir envanter y�
  3. **Çalıştırılabilir İzinler Verin**
     Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
     ```bash
-    chmod +x genel_ekran.sh
+    chmod +x envanter_yonetim.sh
 
  4. **Projeyi Başlatın**
     Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
     ```bash
-    ./genel_ekran.sh
+    ./envanter_yonetim.sh
 
    **Uyarı:** Zenity Yüklenmemişse
      Eğer Zenity sisteminizde yüklü değilse, aşağıdaki komutla yükleyebilirsiniz:
