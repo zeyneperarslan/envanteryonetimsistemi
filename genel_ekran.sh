@@ -26,39 +26,35 @@ function oturum_ekrani() {
     deneme_sayisi=0
 
     while [[ $deneme_sayisi -lt 3 ]]; do
-        # Kullanıcı adı ve şifre alınır.
-        kullanici_adi=$(zenity --entry --title="Giriş" --text="Kullanıcı Adı:" --width=400 --height=150 )
-        sifre=$(zenity --password --title="Giriş" --width=400 --height=150)
+        # Kullanıcı adı ve şifre alınır
+        kullanici_adi=$(zenity --entry --title="Giriş" --text="Kullanıcı Adınızı Giriniz:" --width=400 --height=150)
+        sifre=$(zenity --password --title="Giriş" --text="Şifrenizi Giriniz:" --width=400 --height=150)
 
-        # Kullanıcı rolü kontrol edilir.
-        kullanici_rol=$(grep -i "^$kullanici_adi," kullanici.csv | awk -F, '{print $3}')
+        # Kullanıcı bilgilerini CSV'den çekeriz
+        kullanici_satir=$(grep -i "^$kullanici_adi," kullanici.csv)
 
-        # Eğer kullanıcı rolü bulunmazsa hata mesajı verilir.
-        if [[ -z "$kullanici_rol" ]]; then
-            zenity --error --text="Hatalı kullanıcı adı veya şifre"
-            log_hata "Hatalı giriş denemesi"
+        if [[ -z "$kullanici_satir" ]]; then
+            zenity --error --text="Hatalı kullanıcı adı"
+            log_hata "Hatalı giriş denemesi: Kullanıcı adı bulunamadı"
             deneme_sayisi=$((deneme_sayisi + 1))
             continue
         fi
 
-        # Hesap kilidi kontrolü yapılır.
-        kilitli_hesap=$(grep -i "^$kullanici_adi," kullanici.csv | awk -F, '{print $4}')
-        if [[ "$kilitli_hesap" == "1" ]]; then
-            zenity --error --text="Hesabınız kilitlendi. Yönetici ile iletişime geçiniz."
-            log_hata "Kilitli hesap girişi denemesi"
+        # Kullanıcı bilgileri ayrıştırılır
+        kullanici_rol=$(echo "$kullanici_satir" | awk -F, '{print $3}')
+        mevcut_sifre=$(echo "$kullanici_satir" | awk -F, '{print $4}')
+        hesap_durumu=$(echo "$kullanici_satir" | awk -F, '{print $5}')
+
+        # Hesap durumu kontrolü
+        if [[ "$hesap_durumu" == "kilitli" ]]; then
+            zenity --error --text="Hesabınız kilitlenmiştir. Yönetici ile iletişime geçiniz."
+            log_hata "Kilitli hesap giriş denemesi: $kullanici_adi"
             exit 1
         fi
 
-        # Şifre doğrulama
-        sifre_dogrulama=$(grep -i "^$kullanici_adi,$sifre," kullanici.csv)
-
-        # Debug: grep komutunun çıktısını görmek için
-        echo "grep komutu çıktısı: $sifre_dogrulama"  # Bu satır debug amaçlıdır, terminalde çıktıyı kontrol edin
-
-        # Şifre doğruysa
-        if [[ -n "$sifre_dogrulama" ]]; then
-
-      (
+        # Şifre doğrulaması yapılır
+        if [[ "$sifre" == "$mevcut_sifre" ]]; then
+            (
                 echo "0\nGiriş yapılıyor..."
                 sleep 1
                 echo "100\nHoşgeldiniz $kullanici_adi ($kullanici_rol)"
@@ -67,31 +63,29 @@ function oturum_ekrani() {
 
             zenity --info --text="Giriş Başarılı, Hoşgeldiniz $kullanici_adi ($kullanici_rol)"
             
-            # Kullanıcı rolüne göre ana menüyü aç
+            # Rol bazlı ana menüye yönlendirme
             if [[ "$kullanici_rol" == "Yönetici" ]]; then
                 ana_menu "Yönetici"
             elif [[ "$kullanici_rol" == "Kullanıcı" ]]; then
                 ana_menu "Kullanıcı"
             else
                 zenity --error --text="Kullanıcı rolü bulunamadı"
-                log_hata "Kullanıcı rolü tespit edilemedi!"
+                log_hata "Kullanıcı rolü tespit edilemedi: $kullanici_adi"
                 exit 1
             fi
             return
         else
-            # Şifre yanlışsa, deneme sayısını artır
+            # Şifre yanlışsa eğer 
             deneme_sayisi=$((deneme_sayisi + 1))
-
-            # Hatalı giriş mesajı ve tekrar denemek için ekran göster
             if [[ $deneme_sayisi -lt 3 ]]; then
                 zenity --error --text="Hatalı şifre. Tekrar deneyin. ($deneme_sayisi/3)"
             fi
 
-            # 3 yanlış denemede hesabı kilitle
+            # 3 hatalı girişte hesap kilitlenir
             if [[ $deneme_sayisi -ge 3 ]]; then
-                sed -i "s/^$kullanici_adi,/&1,/" kullanici.csv
+                sed -i "s/^$kullanici_adi,.*$/&kilitli/" kullanici.csv
                 zenity --error --text="Hatalı girişler nedeniyle hesabınız kilitlenmiştir."
-                log_hata "Hesap kilitlendi, Kullanıcı: $kullanici_adi"
+                log_hata "Hesap kilitlendi: $kullanici_adi"
                 exit 1
             fi
         fi
@@ -151,7 +145,7 @@ function kilitli_hesap_ac() {  # Kilitli hesap açma fonksiyonu
     fi
 
     # Kilitli olup olmadığı kontrol edilir.
-    kilitli=$(echo $kullanici | awk -F, '{print $4}')
+    kilitli=$(echo $kullanici | awk -F, '{print $5}')
     if [[ "$kilitli" == "0" ]]; then
         zenity --info --text="Hesap zaten açık!"
         log_hata "Hesap açma denemesi: Hesap zaten açık"
