@@ -193,7 +193,7 @@ Yeni kullanıcının tüm bilgileri girildikten sonra bilgilendirme mesajı veri
 - #### Kullanıcıları Listele
 **"Kullanıcıları Listele"** seçeneği seçilirse var olan kullanıcı listesi görüntülenir.
 
-<img src="zenity/kullaniciliste.png" alt="Giriş Ekranı" width="300">
+<img src="zenity/kisilistesi.png" alt="Giriş Ekranı" width="300">
 
 - #### Kullanıcı Güncelle
 **"Kullanıcı Güncelle"** seçeneği seçilirse istenen kullanıcının bilgileri güncellenir.
