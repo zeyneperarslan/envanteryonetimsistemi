@@ -47,22 +47,27 @@ Proje, Zenity ve bash script kullanılarak geliştirilmiş basit bir envanter y�
 
  ### Adım Adım Kurulum
 
- 1. **Depoyu Klonlayın**  
+ 1. **Depoyu Klonlayın**
+    
     GitHub üzerindeki projeyi bilgisayarınıza klonlamak için terminalde aşağıdaki komutu çalıştırın:
+    
     ```bash
     git clone https://github.com/zeyneperarslan/envanteryonetimsistemi.git
 
- 2. **Proje Klasörüne Gidin**
+ 3. **Proje Klasörüne Gidin**
+    
     Klonladığınız projeye gitmek için şu komutu kullanın:
     ```bash
     cd envanteryonetimsistemi
    
- 3. **Çalıştırılabilir İzinler Verin**
+ 5. **Çalıştırılabilir İzinler Verin**
+    
     Projeyi çalıştırmak için gerekli izinleri vermek amacıyla şu komutu kullanın:
     ```bash
     chmod +x envanter_yonetim.sh
 
- 4. **Projeyi Başlatın**
+ 7. **Projeyi Başlatın**
+    
     Şimdi projeyi çalıştırabilirsiniz. Aşağıdaki komut ile uygulamayı başlatın:
     ```bash
     ./envanter_yonetim.sh
