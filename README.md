@@ -220,13 +220,9 @@ Yönetici kullanıcı güncelleme işlemlerini tamamladığında bilgilendirme m
 
 Yöneticiden silmek istediği kullanıcı adı istenir.
 
-<img src="zenity/kisiguncelmesaji.png" alt="Giriş Ekranı" width="200">
-
-Ardından silmek istediğine dair onayı alınır.
-
 <img src="zenity/kullanicisilmemesaji.png" alt="Giriş Ekranı" width="200">
 
-Onay doğrulanırsa bilgilendirme mesajı verilir.
+Kullanıcının silindiğine dair ilgilendirme mesajı verilir.
 
 - #### Kullanıcı Şifresini Sıfırla
 **"Kullanıcı Şifrresini Sıfırla"** seçeneği seçilirse istenen kullanıcın şifresi sıfırlanır.
